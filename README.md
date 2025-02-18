@@ -1,39 +1,57 @@
-# E-Commerce Backend
+# E-Commerce Application
 
-This project is a simple E-commerce backend built using **Spring Boot** and **JPA** with **H2** in-memory database. It provides APIs to manage items, carts, orders, and discounts. Additionally, it supports Swagger UI for API documentation.
+This project is a complete **E-commerce application** built using **Spring Boot** for the backend and **React with Bootstrap** for the frontend. It provides APIs to manage items, carts, orders, and discounts, along with a user-friendly interface for interacting with the system.
 
 ## Features
 
+### Backend
 - **Item Management**: Add, retrieve, and list items available for sale.
 - **Cart Management**: Create a cart, add items to the cart, and calculate total.
 - **Order Processing**: Checkout an order, apply discount codes, and generate orders.
-- **Discount System**:  Generates discount codes for every nth order through the admin api and applies discounts.
+- **Discount System**: Generates discount codes for every nth order through the admin API and applies discounts.
+- **API Documentation**: Integrated with **Swagger UI** for testing APIs.
+
+### Frontend
+- **Item Display**: Lists all available items with images, descriptions, and prices.
+- **Cart Functionality**: Allows users to add/remove items and update quantities.
+- **Checkout System**: Handles discount codes and order confirmation.
+- **Responsive UI**: Styled using **Bootstrap** for a modern and mobile-friendly experience.
 
 ## Tech Stack
 
+### Backend
 - **Spring Boot**: Framework for building Java-based web applications.
 - **Spring Data JPA**: ORM (Object Relational Mapping) for database operations.
 - **H2 Database**: In-memory database for testing purposes.
 - **Swagger/OpenAPI**: API documentation and testing interface.
 - **Lombok**: Reduces boilerplate code for model classes.
 
+### Frontend
+- **React.js**: JavaScript library for building UI components.
+- **Bootstrap**: UI framework for styling.
+- **Axios**: For making API requests to the backend.
+- **React Router**: Handles frontend routing between pages.
+
 ## Getting Started
 
 ### Prerequisites
 
-- JDK 21 or higher
-- Maven 3.8+
-- IDE like IntelliJ IDEA or Eclipse (optional)
+- **Backend**:
+  - JDK 21 or higher
+  - Maven 3.8+
+  - IDE like IntelliJ IDEA or Eclipse (optional)
+- **Frontend**:
+  - Node.js 18+
+  - npm or yarn
 
-### Installation
+### Backend Installation
 
-
-1. **Build the project**:
+1. **Build the backend**:
     ```bash
     mvn clean install
     ```
 
-2. **Run the application**:
+2. **Run the backend**:
     ```bash
     mvn spring-boot:run
     ```
@@ -41,12 +59,33 @@ This project is a simple E-commerce backend built using **Spring Boot** and **JP
     The backend server will start running on `http://localhost:8080`.
 
 3. **Access Swagger UI**:
-    Swagger UI is available at `http://localhost:8080/swagger-ui.html` for easy testing of the API endpoints.
+    Swagger UI is available at `http://localhost:8080/swagger-ui.html` for easy API testing.
 
-4. **H2 Db console**:
-    H2 in-memory database is available at `http://localhost:8080/h2-console`.
+4. **H2 Database Console**:
+    Available at `http://localhost:8080/h2-console`.
 
-### Available Endpoints
+### Frontend Installation
+
+1. Navigate to the `frontend` directory:
+    ```bash
+    cd frontend
+    ```
+
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3. Start the frontend server:
+    ```bash
+    npm start
+    ```
+
+    The frontend application will run at `http://localhost:3000`.
+
+## Available Endpoints
+
+### Backend API
 
 #### Admin
 - **POST** `/admin/generateDiscount`: Generate a discount code for every nth order (currently every 5th order).
@@ -66,15 +105,16 @@ This project is a simple E-commerce backend built using **Spring Boot** and **JP
 #### Order
 - **POST** `/orders/checkout/{cartId}`: Checkout an order from the cart, optionally apply a discount code.
 
-## Database
-
-- **H2 Database** is used for storing cart, order, and item data. The H2 console is available at `http://localhost:8080/h2-console` for testing.
-- The application uses JPA to interact with the database, and Hibernate will manage the schema creation.
-
 ## Testing
 
- Run unit tests using the following command:
-
+### Backend Tests
+Run unit tests using:
 ```bash
 mvn test
+```
+
+### Frontend Tests
+Run frontend tests using:
+```bash
+npm test
 ```
