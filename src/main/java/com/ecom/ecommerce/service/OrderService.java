@@ -42,14 +42,13 @@ public class OrderService {
                     discount.setIsUsed(true);
                     discountCodeRepository.save(discount);
                 }
-            } else {
-                throw new RuntimeException("Invalid or already used discount code.");
             }
         }
 
         Order order = new Order();
-        order.setTotalAmount(totalAmount);
+        order.setTotalAmount(cart.getTotalPrice());
         order.setDiscountAmount(discountAmount);
+        order.setFinalAmount(totalAmount);
 
         List<OrderItem> orderItems = cart.getCartItems().stream()
                 .map(cartItem -> new OrderItem(cartItem, order))

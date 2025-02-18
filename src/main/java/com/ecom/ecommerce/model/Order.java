@@ -24,6 +24,7 @@ public class Order {
 
     private double totalAmount;
     private double discountAmount;
+    private double finalAmount;
 
     public Order(List<CartItem> cartItems, double totalAmount) {
         this.orderItems = cartItems.stream()
